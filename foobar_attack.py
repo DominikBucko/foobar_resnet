@@ -15,7 +15,7 @@ net = ResNet18()
 net = net.to(device)
 net.eval()
 
-model = "./trained_models/resnet18_1_rows_1_channels_0.5_probability.pth"
+model = "./trained_models/resnet18_1_channels_0.5_probability.pth"
 checkpoint = torch.load(model, map_location=torch.device(device))
 state_dict = OrderedDict((k.removeprefix('module.'), v) for k, v in checkpoint['net'].items())
 net.load_state_dict(state_dict)
